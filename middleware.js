@@ -7,6 +7,10 @@ const isProtectedRoute = createRouteMatcher([
   "/availability(.*)",
 ]);
 
+// if user id is not present
+// obviously the user is not logged in
+// so redirect them to signIn Page.
+
 export default clerkMiddleware((auth, req) => {
   if (!auth().userId && isProtectedRoute(req)) {
     // Add custom logic to run before redirecting
